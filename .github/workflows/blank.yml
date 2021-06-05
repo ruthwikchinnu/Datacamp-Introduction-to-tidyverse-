@@ -1,0 +1,63 @@
+Question
+The  gapminder  and  dplyr  libraries  are  loaded  in  your  workspace.  Recall  that  in  this  dataset,  each  year  contains  one  observation  per  country.
+country contin. year lifeExp pop  gdpP...
+ Oman  Asia   1952   37.6   507833 ...
+ Oman  Asia   1957   40.1   561977 ...
+ Oman  Asia   1962   43.2   628164 ... 
+ Oman  Asia   1967   47.0   714775 ...
+ Oman  Asia   1972   52.1   829050 ...
+ 
+ solution
+ 
+ gapminder %>% 
+filter (year == 1982, country == "China")
+Question
+A  subset  of  the  gapminder data,  gap_2007 ,  is  available  in  your  workspace:
+ country          pop  year
+1 Afghanistan 31889923  2007
+2 Albania      3600523  2007
+3 Algeria     33333216  2007
+...
+# Get the total population in 2007
+gap_2007 %>% 
+summarize=(millions_of_humans = sum(pop/1000000))
+Question
+This  is  the  dataframe  named  df ;  Prepare  the  data  for  the  shown  plot
+item number year
+a    400    2014
+b    150    2015
+c    300    2011
+a    300    2015
+c    400    2011
+c    100    2011
+b    250    2014
+newdf <- df %>% 
+mutate(number = number/100) %>% 
+ group_by(item) %>% 
+   summarize(m = median(number))
+ Question
+ The  dplyr  library  and  the  following  data  frame  df are  loaded  in  your  environment.
+ item number year
+a    400    2014
+b    150    2015
+c    300    2011
+a    100    2015
+c    400    2011
+a    300    2011
+b    250    2014
+Select the code to return the output 
+  item number year
+1    a    100 2015
+2    a    300 2011
+3    a    400 2014
+answer
+df %>% filter(item == "a") %>% arrange(number)
+Question
+What  is  the  result  of  the  following  code? 
+gapminder %>% summarize(mean = mean(lifeExp)) %>% group_by(continent)
+answer
+An error
+Question
+ Which  code  is  equivalent  to  gapminder %>% arrange(desc(lifeExp))
+ Answer
+ arrange(gapminder,desc(lifeExp))
